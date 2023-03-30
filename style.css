@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 200px;
+  gap: 10px;
+  background-color: rgb(131, 107, 107);
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell {
+  border-radius: 5px;
+  font-family: neucha;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e0e0e0;
+  box-shadow: inset -4px -4px 5px white, inset 2px 2px 5px rgb(125, 124, 124), -1px 0px 3px rgb(77, 59, 59), 2px 2px 4px rgb(198, 135, 135);
+
+  font-size: 34px;
+  opacity: 0.7;
+  transition: opacity 0.7s ease-in;
+  color: white;
+}
