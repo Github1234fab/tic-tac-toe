@@ -18,8 +18,10 @@ function playGame(e) {
   cell.style.transform = "scale(1.2)";
   cell.style.transition = "transform .900s ease-in-out";
   cell.classList.add(playerOne ? "blue" : "red");
-  const blueCells = document.querySelectorAll("[data-cell].blue");
-  const redCells = document.querySelectorAll("[data-cell].red");
+  const blueCells = Array.from(document.querySelectorAll("[data-cell].blue"));
+  const redCells = Array.from(document.querySelectorAll("[data-cell].red"));
+  // const blueCells = document.querySelectorAll("[data-cell].blue");
+  // const redCells = document.querySelectorAll("[data-cell].red");
 
   setTimeout(function () {
     cell.style.transform = "scale(1)";
@@ -53,41 +55,45 @@ function playGame(e) {
     [2, 4, 6],
   ];
 
-  let comboIndex = -1;
-  let comboColor = "";
+  let isBlueWinner = winningCombos.some((combo) => {
+    console.log(combo.every((index) => blueCells.includes(cells[index])));
+  });
 
-  for (let i = 0; i < winningCombos.length; i++) {
-    const combo = winningCombos[i];
-    let cellColor = "";
-    let isComboValid = true;
+  // let comboIndex = -1;
+  // let comboColor = "";
 
-    for (let j = 0; j < combo.length; j++) {
-      const cellIndex = combo[j];
+  // for (let i = 0; i < winningCombos.length; i++) {
+  //   const combo = winningCombos[i];
+  //   let cellColor = "";
+  //   let isComboValid = true;
 
-      if (j === 0) {
-        cellColor = cells[cellIndex].classList.contains("blue") ? "blue" : "red";
-      } else if (cells[cellIndex].classList.contains(cellColor)) {
-        continue;
-      } else {
-        isComboValid = false;
-        break;
-      }
-    }
+  //   for (let j = 0; j < combo.length; j++) {
+  //     const cellIndex = combo[j];
 
-    if (isComboValid) {
-      comboIndex = i;
-      comboColor = cellColor;
-      break;
-    }
-  }
+  //     if (j === 0) {
+  //       cellColor = cells[cellIndex].classList.contains("blue") ? "blue" : "red";
+  //     } else if (cells[cellIndex].classList.contains(cellColor)) {
+  //       continue;
+  //     } else {
+  //       isComboValid = false;
+  //       break;
+  //     }
+  //   }
 
-  if (comboIndex !== -1) {
-    stop.innerText = "PlayerOne are the winner!!";
-    // console.log(`La combinaison ${comboIndex} contient seulement des cellules ${comboColor}.`);
-  } else {
-    stop.innerText = "PlayerTwo are the winner!!";
-    // console.log("Aucune combinaison ne contient seulement des cellules d'une seule couleur.");
-  }
+  //   if (isComboValid) {
+  //     comboIndex = i;
+  //     comboColor = cellColor;
+  //     break;
+  //   }
+  // }
+
+  // if (comboIndex !== -1) {
+  //   stop.innerText = "PlayerOne are the winner!!";
+  //   // console.log(`La combinaison ${comboIndex} contient seulement des cellules ${comboColor}.`);
+  // } else {
+  //   stop.innerText = "PlayerTwo are the winner!!";
+  //   // console.log("Aucune combinaison ne contient seulement des cellules d'une seule couleur.");
+  // }
 }
 
 // Enregistrement du plugin ScrollTrigger
