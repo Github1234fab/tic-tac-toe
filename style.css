@@ -42,7 +42,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #e0e0e0;
-  box-shadow: inset -6px -4px 8px white, inset 5px 5px 7px rgb(138, 132, 132), -1px 0px 2px rgb(121, 117, 117), 1px 1px 4px rgb(99, 90, 90);
+  box-shadow: inset -6px -4px 8px white, inset 3px 3px 8px rgb(87, 80, 80), -1px 0px 2px rgb(121, 117, 117), 1px 1px 4px rgb(99, 90, 90);
   font-size: 34px;
   transition: opacity 0.7s ease-in;
   color: white;
@@ -58,10 +58,10 @@ body {
   box-shadow: 1px 1px 4px rgb(0, 0, 0) inset;
 }
 
-.reload {
+.buttons {
   border-radius: 5px;
   font-family: oswald;
-  height: 50px;
+  height: 60px;
   width: 90px;
   background-color: transparent;
   font-size: 14px;
@@ -71,15 +71,16 @@ body {
   justify-content: center;
   align-items: center;
   border: 1px blue solid;
+  box-shadow: 0px 0px 1px rgb(149, 201, 243), 0px 0px 2px rgb(149, 201, 243);
 }
 
-.buttons {
-  width: 100%;
+.container_buttons {
+  width: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30px;
-  margin-top: 10px;
+  gap: 15px;
+  margin-top: 30px;
 }
 
 /* .test{

@@ -55,45 +55,28 @@ function playGame(e) {
     [2, 4, 6],
   ];
 
-  let isBlueWinner = winningCombos.some((combo) => {
-    console.log(combo.every((index) => blueCells.includes(cells[index])));
+  // let isBlueWinner = winningCombos.some((combo) => {
+  //   console.log(combo.every((index) => blueCells.includes(cells[index])));
+  // });
+
+  let isBlueWinner = winningCombos.some((el) => {
+    return el.every((index) => cells[index].classList.contains("blue"));
+    score.innerHTML = "Blues wins";
   });
+  console.log("isBlueWinner");
 
-  // let comboIndex = -1;
-  // let comboColor = "";
-
-  // for (let i = 0; i < winningCombos.length; i++) {
-  //   const combo = winningCombos[i];
-  //   let cellColor = "";
-  //   let isComboValid = true;
-
-  //   for (let j = 0; j < combo.length; j++) {
-  //     const cellIndex = combo[j];
-
-  //     if (j === 0) {
-  //       cellColor = cells[cellIndex].classList.contains("blue") ? "blue" : "red";
-  //     } else if (cells[cellIndex].classList.contains(cellColor)) {
-  //       continue;
-  //     } else {
-  //       isComboValid = false;
-  //       break;
-  //     }
-  //   }
-
-  //   if (isComboValid) {
-  //     comboIndex = i;
-  //     comboColor = cellColor;
-  //     break;
-  //   }
-  // }
-
-  // if (comboIndex !== -1) {
-  //   stop.innerText = "PlayerOne are the winner!!";
-  //   // console.log(`La combinaison ${comboIndex} contient seulement des cellules ${comboColor}.`);
-  // } else {
-  //   stop.innerText = "PlayerTwo are the winner!!";
-  //   // console.log("Aucune combinaison ne contient seulement des cellules d'une seule couleur.");
-  // }
+  let isRedWinner = winningCombos.some((el) => {
+    return el.every((index) => cells[index].classList.contains("red"));
+    score.innerHTML = "Reds wins";
+  });
+  console.log(isRedWinner);
+  if (isBlueWinner === true) {
+    score.innerHTML = "Blues wins!!";
+  } else if (isRedWinner === true) {
+    score.innerHTML = "Reds wins!!";
+  } else if (document.querySelectorAll(".cell:not(.blue):not(.red)").length === 0) {
+    score.innerHTML = "Tie Game!!";
+  }
 }
 
 // Enregistrement du plugin ScrollTrigger
