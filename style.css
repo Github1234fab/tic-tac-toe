@@ -12,13 +12,14 @@ body {
   flex-direction: column;
   width: 400px;
   gap: 10px;
-  background-color: rgb(2, 21, 57);
+  background: linear-gradient(to top, rgb(12, 69, 174), rgb(1, 8, 21));
   height: 400px;
   justify-content: space-around;
   align-items: center;
   border-radius: 5px;
   box-shadow: 1px 1px 2px rgb(118, 96, 96);
 }
+
 .container_cells {
   height: 300px;
   width: 270px;
@@ -86,11 +87,19 @@ body {
 .scoreBlue {
   font-size: 16px;
   color: rgb(162, 162, 239);
-  text-shadow: 0px 0px 20px rgb(117, 186, 242), 0px 0px 40px rgb(117, 186, 242), 0px 0px 80px rgb(117, 186, 242), 0px 0px 100px rgb(117, 186, 242);
+  text-shadow: 0px 0px 20px rgb(175, 212, 243), 0px 0px 40px rgb(172, 210, 241), 0px 0px 80px rgb(170, 212, 247), 0px 0px 100px rgb(175, 213, 243);
 }
 .scoreRed {
+  font-size: 16px;
   color: red;
   text-shadow: 0px 0px 20px rgb(237, 103, 103), 0px 0px 40px rgb(237, 103, 103), 0px 0px 80px rgb(237, 103, 103), 0px 0px 100px rgb(237, 103, 103);
+}
+
+.container_score {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 5px;
 }
 
 /* .test{

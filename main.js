@@ -5,8 +5,14 @@ const score = document.getElementById("score");
 const blueScore = document.getElementById("blueScore");
 const redScore = document.getElementById("redScore");
 
-reload.addEventListener("click", () => {
-  location.reload();
+reload.addEventListener("click", (el) => {
+  cells.forEach((el) => {
+    el.classList.remove("blue", "red");
+    gameState.innerHTML = "";
+  });
+   cells.forEach((cell) => {
+     cell.addEventListener("click", playGame, { once: true });
+   });
 });
 
 let playerOne = true;
@@ -14,6 +20,8 @@ let playerOne = true;
 cells.forEach((cell) => {
   cell.addEventListener("click", playGame, { once: true });
 });
+  let indexBlue = 0;
+  let indexRed = 0;
 
 function playGame(e) {
   const cell = e.target;
@@ -22,8 +30,6 @@ function playGame(e) {
   cell.classList.add(playerOne ? "blue" : "red");
   const blueCells = Array.from(document.querySelectorAll("[data-cell].blue"));
   const redCells = Array.from(document.querySelectorAll("[data-cell].red"));
-  // const blueCells = document.querySelectorAll("[data-cell].blue");
-  // const redCells = document.querySelectorAll("[data-cell].red");
 
   setTimeout(function () {
     cell.style.transform = "scale(1)";
@@ -34,9 +40,9 @@ function playGame(e) {
   let textGameState;
 
   if (playerOne) {
-    textGameState = "it's player Two's turn";
+    textGameState = "it's player Blues's turn";
   } else {
-    textGameState = "it's player One's turn";
+    textGameState = "it's player Reds's turn";
   }
   gameState.innerHTML = textGameState;
   console.log(textGameState);
@@ -65,14 +71,12 @@ function playGame(e) {
     return el.every((index) => cells[index].classList.contains("blue"));
     score.innerHTML = "Blues wins";
   });
-  console.log("isBlueWinner");
 
   let isRedWinner = winningCombos.some((el) => {
     return el.every((index) => cells[index].classList.contains("red"));
     score.innerHTML = "Reds wins";
   });
-  let indexBlue = 0;
-  let indexRed = 0;
+
   if (isBlueWinner === true) {
     gameState.innerHTML = "Blues wins!!";
     indexBlue++;
@@ -84,10 +88,7 @@ function playGame(e) {
   } else if (document.querySelectorAll(".cell:not(.blue):not(.red)").length === 0) {
     score.innerHTML = "Tie Game!!";
   }
-
-
 }
-
 
 // Enregistrement du plugin ScrollTrigger
 // gsap.registerPlugin(ScrollTrigger);
