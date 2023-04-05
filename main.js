@@ -1,9 +1,11 @@
 const cells = document.querySelectorAll("[data-cell]");
-const button = document.getElementById("button");
+const reload = document.getElementById("reload");
+const gameState = document.getElementById("gameState");
 const score = document.getElementById("score");
-const stop = document.getElementById("stop");
+const blueScore = document.getElementById("blueScore");
+const redScore = document.getElementById("redScore");
 
-button.addEventListener("click", () => {
+reload.addEventListener("click", () => {
   location.reload();
 });
 
@@ -36,7 +38,7 @@ function playGame(e) {
   } else {
     textGameState = "it's player One's turn";
   }
-  score.innerHTML = textGameState;
+  gameState.innerHTML = textGameState;
   console.log(textGameState);
 
   // console.log(blueCells.length);
@@ -69,15 +71,23 @@ function playGame(e) {
     return el.every((index) => cells[index].classList.contains("red"));
     score.innerHTML = "Reds wins";
   });
-  console.log(isRedWinner);
+  let indexBlue = 0;
+  let indexRed = 0;
   if (isBlueWinner === true) {
-    score.innerHTML = "Blues wins!!";
+    gameState.innerHTML = "Blues wins!!";
+    indexBlue++;
+    blueScore.innerHTML = indexBlue;
   } else if (isRedWinner === true) {
-    score.innerHTML = "Reds wins!!";
+    gameState.innerHTML = "Reds wins!!";
+    indexRed++;
+    redScore.innerHTML = indexRed;
   } else if (document.querySelectorAll(".cell:not(.blue):not(.red)").length === 0) {
     score.innerHTML = "Tie Game!!";
   }
+
+
 }
+
 
 // Enregistrement du plugin ScrollTrigger
 // gsap.registerPlugin(ScrollTrigger);
