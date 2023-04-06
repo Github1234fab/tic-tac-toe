@@ -3,7 +3,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: blue;
 }
 
 .container {
@@ -12,15 +11,14 @@ body {
   display: flex;
   flex-direction: column;
   width: 330px;
-  gap: 10px;
-  background: linear-gradient(to left, rgb(123, 161, 233), 10% , rgb(6, 13, 25) , rgb(82, 134, 230));
-  /* background-color: #486fe5; */
+  gap: 0px;
+  background: linear-gradient(to left, rgb(123, 161, 233), 10%, rgb(6, 13, 25), rgb(0, 2, 7));
   height: 400px;
   justify-content: space-around;
   align-items: center;
   border-radius: 5px;
-  box-shadow: inset 70px 0px 50px rgb(39, 56, 92), inset -10px 0px 50px rgb(222, 224, 227) ;
-
+  box-shadow: inset 5px 0px 40px rgb(70, 74, 79), inset -10px 0px 50px rgb(222, 224, 227);
+    position: relative;
 }
 
 .container_cells {
@@ -33,7 +31,7 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   padding: 20px;
 }
 
@@ -48,7 +46,7 @@ body {
   background-color: #e0e0e0;
   /* background-color: #e3e3e3; */
   /* background: linear-gradient(to top left, #f7f4f4, #d0cdcd); */
-  box-shadow: inset -6px -4px 8px white, inset 2px 1px 8px rgb(87, 80, 80), -1px -1px 2px rgb(60, 60, 61), 1px 1px 2px rgb(36, 32, 32);
+  box-shadow: inset -10px 0px 7px white, inset 3px 0px 15px rgb(142, 134, 134), -1px -1px 2px rgb(60, 60, 61), 1px 1px 2px rgb(36, 32, 32);
   /* box-shadow: 2px 2px 10px #c7c7d3, -2px -2px 10px #fff; */
   font-size: 34px;
   transition: opacity 0.7s ease-in;
@@ -88,7 +86,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 15px;
-  margin-top: 30px;
+  margin-top: 80px;
 }
 
 .scoreBlue {
@@ -108,7 +106,16 @@ body {
   /* justify-content: space-around; */
   gap: 12px;
 }
+.power{
+  position: absolute;
+  top: 20px;
+  left: 280px;
+  text-shadow: 0px 0px 20px white, 0px 0px 40px white, 0px 0px 60px white, 0px 0px 80px white;
+}
 
+.hidden_reload{
+  visibility: hidden;
+}
 /* .test{
   height: 300px;
 }

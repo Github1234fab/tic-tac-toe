@@ -4,8 +4,10 @@ const gameState = document.getElementById("gameState");
 const score = document.getElementById("score");
 const blueScore = document.getElementById("blueScore");
 const redScore = document.getElementById("redScore");
+const power = document.getElementById("power");
 
-//function reload......................................................
+//function reintialiser le jeu......................................................
+
 reload.addEventListener("click", (el) => {
   cells.forEach((el) => {
     el.classList.remove("blue", "red");
@@ -16,25 +18,71 @@ reload.addEventListener("click", (el) => {
   });
 });
 
-let playerOne = true;
+//function éteindre le jeu et le rallumer......................................................
+
+let gameIsOn = false;
+
+power.addEventListener("click", () => {
+  gameIsOn = !gameIsOn;
+  power.style.color = gameIsOn ? "blue" : "yellow";
+    if (power.style.color === "blue") {
+      reload.classList.add("hidden_reload");
+      gameState.classList.add("hidden_reload");
+      score.classList.add("hidden_reload");
+      cells.forEach((el) => {
+        el.classList.add("hidden_reload");
+      });
+    } else {
+      reload.classList.remove("hidden_reload");
+      gameState.classList.remove("hidden_reload");
+      score.classList.remove("hidden_reload");
+      cells.forEach((el) => {
+        el.classList.remove("hidden_reload");
+      });
+    }
+});
+  
+  // if (!gameIsOn) {
+  //   power.style.color = "white";
+  //   reload.classList.add("hidden_reload");
+  //   // location.reload();
+  // } else if (gameIsOn){
+  //   power.style.color = "red";
+  //   reload.classList.add("buttons");
+  // }
+
+  
+
+let playerOne = true; // va servir à passer la class blue ou red en alternant (à travers une ternaire).............
+
+//chaque cellule déclenche playGame() au click. {once:true}, permet de vérouiller une touche une fois cliquée.......................................................
 
 cells.forEach((cell) => {
   cell.addEventListener("click", playGame, { once: true });
 });
+
+//fLes deux index stockés en dehors de playGme()......................................................
+
 let indexBlue = 0;
 let indexRed = 0;
 
+// fonction playGame .....................................................
+
 function playGame(e) {
-  const cell = e.target;
+  const cell = e.target; //récupère chaque cellule..........
   cell.style.transform = "scale(1.2)";
   cell.style.transition = "transform .900s ease-in-out";
-  cell.classList.add(playerOne ? "blue" : "red");
+  cell.classList.add(playerOne ? "blue" : "red"); // permet d'alterner en passant la classe appropriée. Si joueur 1 alors blue, sinon red............
   const blueCells = Array.from(document.querySelectorAll("[data-cell].blue"));
   const redCells = Array.from(document.querySelectorAll("[data-cell].red"));
+
+  // transforme le scale........................................................
 
   setTimeout(function () {
     cell.style.transform = "scale(1)";
   }, 200);
+
+  // permet de passer le gameState, à qui le tour? .........................................
 
   playerOne = !playerOne;
 
@@ -51,8 +99,7 @@ function playGame(e) {
   // console.log(blueCells.length);
   console.log(redCells.length);
 
-  // Check for winner
-
+  // les combinaisons sont stockées sous forme de tableaux dans le tableau........................
   const winningCombos = [
     [0, 1, 2],
     [3, 4, 5],
@@ -64,9 +111,7 @@ function playGame(e) {
     [2, 4, 6],
   ];
 
-  // let isBlueWinner = winningCombos.some((combo) => {
-  //   console.log(combo.every((index) => blueCells.includes(cells[index])));
-  // });
+  // trouver si une combinaison est gagnante...........................................;
 
   let isBlueWinner = winningCombos.some((el) => {
     return el.every((index) => cells[index].classList.contains("blue"));
@@ -78,6 +123,7 @@ function playGame(e) {
     score.innerHTML = "Reds wins";
   });
 
+  // condition, si le joueur un gagne, etc......................................................
   if (isBlueWinner === true) {
     gameState.innerHTML = "Blues wins!!";
     indexBlue++;
