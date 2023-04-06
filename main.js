@@ -37,6 +37,9 @@ power.addEventListener("click", () => {
     blueScore.innerHTML = "";
     redScore.innerHTML = "";
     cells.forEach((el) => {
+      el.classList.add("hidden_reload");
+    });
+    cells.forEach((el) => {
       el.classList.remove("blue", "red");
       gameState.innerHTML = "";
     });
@@ -44,6 +47,8 @@ power.addEventListener("click", () => {
       cell.addEventListener("click", playGame, { once: true });
     });
   } else {
+    blueScore.innerHTML = "";
+    redScore.innerHTML = "";
     reload.classList.remove("hidden_reload");
     gameState.classList.remove("hidden_reload");
     score.classList.remove("hidden_reload");
