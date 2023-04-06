@@ -6,6 +6,11 @@ const blueScore = document.getElementById("blueScore");
 const redScore = document.getElementById("redScore");
 const power = document.getElementById("power");
 
+//fLes deux index stockés en dehors de playGme()......................................................
+
+let indexBlue = 0;
+let indexRed = 0;
+
 //function reintialiser le jeu......................................................
 
 reload.addEventListener("click", (el) => {
@@ -25,33 +30,28 @@ let gameIsOn = false;
 power.addEventListener("click", () => {
   gameIsOn = !gameIsOn;
   power.style.color = gameIsOn ? "blue" : "yellow";
-    if (power.style.color === "blue") {
-      reload.classList.add("hidden_reload");
-      gameState.classList.add("hidden_reload");
-      score.classList.add("hidden_reload");
-      cells.forEach((el) => {
-        el.classList.add("hidden_reload");
-      });
-    } else {
-      reload.classList.remove("hidden_reload");
-      gameState.classList.remove("hidden_reload");
-      score.classList.remove("hidden_reload");
-      cells.forEach((el) => {
-        el.classList.remove("hidden_reload");
-      });
-    }
+  if (power.style.color === "blue") {
+    reload.classList.add("hidden_reload");
+    gameState.classList.add("hidden_reload");
+    score.classList.add("hidden_reload");
+    blueScore.innerHTML = "";
+    redScore.innerHTML = "";
+    cells.forEach((el) => {
+      el.classList.remove("blue", "red");
+      gameState.innerHTML = "";
+    });
+    cells.forEach((cell) => {
+      cell.addEventListener("click", playGame, { once: true });
+    });
+  } else {
+    reload.classList.remove("hidden_reload");
+    gameState.classList.remove("hidden_reload");
+    score.classList.remove("hidden_reload");
+    cells.forEach((el) => {
+      el.classList.remove("hidden_reload");
+    });
+  }
 });
-  
-  // if (!gameIsOn) {
-  //   power.style.color = "white";
-  //   reload.classList.add("hidden_reload");
-  //   // location.reload();
-  // } else if (gameIsOn){
-  //   power.style.color = "red";
-  //   reload.classList.add("buttons");
-  // }
-
-  
 
 let playerOne = true; // va servir à passer la class blue ou red en alternant (à travers une ternaire).............
 
@@ -60,11 +60,6 @@ let playerOne = true; // va servir à passer la class blue ou red en alternant (
 cells.forEach((cell) => {
   cell.addEventListener("click", playGame, { once: true });
 });
-
-//fLes deux index stockés en dehors de playGme()......................................................
-
-let indexBlue = 0;
-let indexRed = 0;
 
 // fonction playGame .....................................................
 
@@ -89,9 +84,9 @@ function playGame(e) {
   let textGameState;
 
   if (playerOne) {
-    textGameState = "it's player Blues's turn";
+    textGameState = "Blues's turn";
   } else {
-    textGameState = "it's player Reds's turn";
+    textGameState = "Reds's turn";
   }
   gameState.innerHTML = textGameState;
   console.log(textGameState);
