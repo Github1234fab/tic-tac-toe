@@ -36,6 +36,7 @@ power.addEventListener("click", () => {
     score.classList.add("hidden_reload");
     blueScore.innerHTML = "";
     redScore.innerHTML = "";
+    // window.location.reload();
     cells.forEach((el) => {
       el.classList.add("hidden_reload");
     });
