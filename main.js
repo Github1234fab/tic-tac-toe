@@ -5,14 +5,15 @@ const score = document.getElementById("score");
 const blueScore = document.getElementById("blueScore");
 const redScore = document.getElementById("redScore");
 
+//function reload......................................................
 reload.addEventListener("click", (el) => {
   cells.forEach((el) => {
     el.classList.remove("blue", "red");
     gameState.innerHTML = "";
   });
-   cells.forEach((cell) => {
-     cell.addEventListener("click", playGame, { once: true });
-   });
+  cells.forEach((cell) => {
+    cell.addEventListener("click", playGame, { once: true });
+  });
 });
 
 let playerOne = true;
@@ -20,8 +21,8 @@ let playerOne = true;
 cells.forEach((cell) => {
   cell.addEventListener("click", playGame, { once: true });
 });
-  let indexBlue = 0;
-  let indexRed = 0;
+let indexBlue = 0;
+let indexRed = 0;
 
 function playGame(e) {
   const cell = e.target;
@@ -86,7 +87,7 @@ function playGame(e) {
     indexRed++;
     redScore.innerHTML = indexRed;
   } else if (document.querySelectorAll(".cell:not(.blue):not(.red)").length === 0) {
-    score.innerHTML = "Tie Game!!";
+    gameState.innerHTML = "Tie Game!!";
   }
 }
 
