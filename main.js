@@ -7,6 +7,17 @@ const redScore = document.getElementById("redScore");
 const power = document.getElementById("power");
 const powerButton = document.querySelector(".power-button");
 
+
+document.addEventListener("DOMContentLoaded", () => {
+  powerButton.classList.add("power-button");
+  reload.classList.add("hidden");
+  gameState.classList.add("hidden");
+  score.classList.add("hidden");
+  cells.forEach((el) => {
+    el.classList.add("hidden");
+  });
+});
+
 //fLes deux index stockés en dehors de playGme()......................................................
 
 let indexBlue = 0;
@@ -30,17 +41,20 @@ let gameIsOn = false;
 
 power.addEventListener("click", () => {
    gameIsOn = !gameIsOn;
-   power.style.color = gameIsOn ? "blue" : "green";
+   power.style.color = gameIsOn ? "green" : "blue";
    if (power.style.color === "blue") {
+      console.log("blue");
       powerButton.classList.remove("power-button-on");
-      reload.classList.add("hidden_reload");
-      gameState.classList.add("hidden_reload");
-      score.classList.add("hidden_reload");
+      reload.classList.add("hidden");
+      gameState.classList.add("hidden");
+      score.classList.add("hidden");
       blueScore.innerHTML = "";
+      indexBlue = 0;
+      indexRed = 0;
       redScore.innerHTML = "";
       // window.location.reload();
       cells.forEach((el) => {
-         el.classList.add("hidden_reload");
+         el.classList.add("hidden");
       });
       cells.forEach((el) => {
          el.classList.remove("blue", "red");
@@ -50,14 +64,15 @@ power.addEventListener("click", () => {
          cell.addEventListener("click", playGame, { once: true });
       });
    } else {
+       console.log("green");
       powerButton.classList.add("power-button-on");
       blueScore.innerHTML = "";
       redScore.innerHTML = "";
-      reload.classList.remove("hidden_reload");
-      gameState.classList.remove("hidden_reload");
-      score.classList.remove("hidden_reload");
+      reload.classList.remove("hidden");
+      gameState.classList.remove("hidden");
+      score.classList.remove("hidden");
       cells.forEach((el) => {
-         el.classList.remove("hidden_reload");
+         el.classList.remove("hidden");
       });
    }
 });

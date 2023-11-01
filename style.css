@@ -1,198 +1,182 @@
 * {
-   padding: 0px;
-   margin: 0px;
-   box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
 }
 :root {
-   --colorA: #ffffff;
+  --colorA: #ffffff;
 }
 
 .container {
-   display: flex;
-   flex-direction: column;
-   width: 100vw;
-   height: 100vh;
-   gap: 0px;
-   background: linear-gradient(to right, #4c736e, 10%, white);
-   justify-content: space-around;
-   align-items: center;
-   position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to right, #4c736e, 10%, white);
+  align-items: center;
+  align-content: center;
+  position: relative;
 }
 
 .container_cells {
-   height: 90%;
-   width: 500px;
-   display: flex;
-   flex-wrap: wrap;
-   gap: 40px;
-   justify-content: center;
-   align-items: center;
-   border-radius: 15px;
-   margin-bottom: 40px;
-   padding: 20px;
+  height: auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 150px 150px 150px;
+  grid-template-rows: 150px 150px 150px;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  border-radius: 15px;
+  margin-bottom: 40px;
+  padding: 20px;
+  justify-items: center;
 }
 
 .cell {
-   border-radius: 5px;
-   font-family: neucha;
-   height: 100px;
-   width: 100px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   background-color: #e0e0e0;
-   box-shadow: inset -5px 0px 7px white, inset 1px 1px 3px rgb(11, 11, 11),
-      0px 1px 1px rgb(173, 173, 173), 0px 0px 5px rgb(142, 142, 142);
-   font-size: 34px;
-   transition: opacity 0.7s ease-in;
-   color: white;
+  border-radius: 5px;
+  font-family: neucha;
+  height: 100px;
+  width: 100px;
+  background-color: #e0e0e0;
+  box-shadow: inset -5px 0px 7px white, inset 1px 1px 3px rgb(11, 11, 11), 0px 1px 1px rgb(173, 173, 173),
+    0px 0px 5px rgb(142, 142, 142);
+  font-size: 34px;
+  transition: opacity 0.7s ease-in;
+  color: white;
+  margin: 10px;
 }
 
 .blue {
-   background: radial-gradient(rgb(133, 130, 207), rgb(39, 32, 166));
-   box-shadow: 1px 1px 4px rgb(3, 1, 24) inset;
+  background: radial-gradient(rgb(133, 130, 207), rgb(39, 32, 166));
+  box-shadow: 1px 1px 4px rgb(3, 1, 24) inset;
 }
 .red {
-   background: radial-gradient(rgb(230, 139, 139), rgb(137, 17, 17));
-   box-shadow: 1px 1px 4px rgb(0, 0, 0) inset;
+  background: radial-gradient(rgb(230, 139, 139), rgb(137, 17, 17));
+  box-shadow: 1px 1px 4px rgb(0, 0, 0) inset;
 }
 
 .buttons {
-   border-radius: 5px;
-   font-family: oswald;
-   height: 60px;
-   width: 78px;
-   background-color: transparent;
-   font-size: 14px;
-   color: rgb(255, 255, 255);
-   text-shadow: 0px 0px 10px rgb(159, 203, 240), 0px 0px 40px rgb(151, 197, 235),
-      0px 0px 80px rgb(206, 228, 246), 0px 0px 100px rgb(199, 223, 244);
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   border: none;
+  border-radius: 5px;
+  font-family: oswald;
+  height: 60px;
+  width: 78px;
+  background-color: transparent;
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 0px 10px rgb(159, 203, 240), 0px 0px 40px rgb(151, 197, 235), 0px 0px 80px rgb(206, 228, 246),
+    0px 0px 100px rgb(199, 223, 244);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
 }
 
 .container_buttons {
-   width: 300px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   gap: 20px;
-   margin-top: 80px;
+  position: relative;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 80px;
 }
 #reload,
 #gameState,
 #score {
-   color: black;
+  color: black;
 }
 .scoreBlue {
-   font-size: 15px;
-   color: rgb(162, 162, 239);
-   text-shadow: 0px 0px 10px rgb(240, 244, 247), 0px 0px 40px rgb(243, 245, 247),
-      0px 0px 80px rgb(230, 239, 246), 0px 0px 100px rgb(248, 250, 251);
-   border: solid grey 1px;
-   border-radius: 50%;
-   height: 30px;
-   width: 30px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   box-shadow: 0px 0px 5px white;
+  font-size: 15px;
+  color: rgb(162, 162, 239);
+  text-shadow: 0px 0px 10px rgb(240, 244, 247), 0px 0px 40px rgb(243, 245, 247), 0px 0px 80px rgb(230, 239, 246),
+    0px 0px 100px rgb(248, 250, 251);
+  border: solid grey 1px;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 5px white;
 }
 .scoreRed {
-   box-shadow: 0px 0px 5px white;
-   font-size: 15px;
-   color: rgb(232, 123, 123);
-   text-shadow: 0px 0px 20px rgb(237, 103, 103), 0px 0px 40px rgb(237, 103, 103),
-      0px 0px 80px rgb(237, 103, 103), 0px 0px 100px rgb(237, 103, 103);
-   border: solid grey 1px;
-   border-radius: 50%;
-   height: 30px;
-   width: 30px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
+  box-shadow: 0px 0px 5px white;
+  font-size: 15px;
+  color: rgb(232, 123, 123);
+  text-shadow: 0px 0px 20px rgb(237, 103, 103), 0px 0px 40px rgb(237, 103, 103), 0px 0px 80px rgb(237, 103, 103),
+    0px 0px 100px rgb(237, 103, 103);
+  border: solid grey 1px;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container_score {
-   display: flex;
-   align-items: center;
-   gap: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  height: 100px;
 }
 .power-button {
-   position: absolute;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   align-content: center;
-   width: 30px;
-   height: 30px;
-   top: 20px;
-   left: 280px;
-   padding: 10px;
-   box-shadow: inset -5px 0px 7px white, inset 1px 1px 3px rgb(11, 11, 11),
-      0px 1px 1px rgb(173, 173, 173), 0px 0px 5px rgb(142, 142, 142);
-   border: none;
-   border-radius: 50%;
-   background-color: #e0e0e0;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 30px;
+  height: 30px;
+  top: 0px;
+  left: 233px;
+  padding: 10px;
+  box-shadow: inset 1px 1px 1px rgb(160, 160, 160), inset -1px -1px 1px rgb(174, 174, 174);
+  border: none;
+  border-radius: 50%;
+  background-color: #e0e0e0;
 }
 .power-button-on {
-   position: absolute;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   align-content: center;
-   width: 30px;
-   height: 30px;
-   top: 20px;
-   left: 280px;
-   padding: 10px;
-   box-shadow: inset 2px 2px 3px rgb(117, 117, 117),
-      inset -2px -2px 5px rgb(70, 70, 70);
-   border: none;
-   border-radius: 50%;
-   background-color: #e0e0e0;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 30px;
+  height: 30px;
+  top: 0px;
+  left: 233px;
+  padding: 10px;
+  box-shadow: inset 1px 1px 1px rgb(160, 160, 160), inset -1px -1px 1px rgb(174, 174, 174);
+  border: none;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+}
+.power {
+  margin-left: 1px;
+  text-shadow: 0px 0px 10px white;
+  color: blue;
 }
 
 .hidden_reload {
-   visibility: hidden;
+  visibility: hidden;
+}
+.hidden {
+  display: none; /* Les éléments sont initialement masqués */
 }
 
-@media screen and (max-width: 540px) {
-   .container_cells {
-      height: 60%;
-      width: 350px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      justify-content: center;
-      align-items: center;
-      border-radius: 15px;
-      margin-bottom: 40px;
-      padding: 20px;
-   }
-   .cell {
-      border-radius: 5px;
-      font-family: neucha;
-      height: 70px;
-      width: 70px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #e0e0e0;
-      box-shadow: inset -5px 0px 7px white, inset 1px 1px 3px rgb(11, 11, 11),
-         0px 1px 1px rgb(173, 173, 173), 0px 0px 5px rgb(142, 142, 142);
-      font-size: 34px;
-      color: white;
-      transition: opacity 0.7s ease-in;
-   }
-   .blue {
-      background: radial-gradient(rgb(133, 130, 207), rgb(39, 32, 166));
-      box-shadow: 1px 1px 4px rgb(3, 1, 24) inset;
-   }
-   .red {
-      background: radial-gradient(rgb(230, 139, 139), rgb(137, 17, 17));
-      box-shadow: 1px 1px 4px rgb(0, 0, 0) inset;
-   }
+@media screen and (max-width: 448px) {
+  .container_cells {
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px;
+    gap: 10px;
+  }
+
+  .cell {
+    height: 70px;
+    width: 70px;
+  }
 }
